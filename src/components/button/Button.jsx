@@ -1,12 +1,15 @@
 import "./Button.css";
 
-const Button = ({ children,backgroundColor ,...props }) => {
+const Button = ({ children, backgroundColor, onClick, ...props }) => {
   return (
-    <div>
-      <button className="button" style={{ backgroundColor: `${backgroundColor}` }} {...props}>
-        {children}
-      </button>
-    </div>
+    <button
+      className="button"
+      style={{ backgroundColor: `${backgroundColor}` }}
+      onClick={onClick}
+      {...props}
+    >
+      {children}
+    </button>
   );
 };
 

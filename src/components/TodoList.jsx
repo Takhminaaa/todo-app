@@ -1,11 +1,17 @@
 import TodoListItem from "./TodoListItem";
 
-const TodoList = ({  handleDaleteValue,handleUpdate, todos}) => {
+const TodoList = ({ handleDaleteValue, handleUpdate, todos }) => {
   return (
-    <div>
-      <TodoListItem todos={todos} handleDaleteValue={handleDaleteValue} handleUpdate={handleUpdate}
-      />
-    </div>
+    <ul className="ul">
+      {todos.map((item) => (
+        <TodoListItem
+          key={item.id}
+          {...item}
+          handleDaleteValue={handleDaleteValue}
+          handleUpdate={handleUpdate}
+        />
+      ))}
+    </ul>
   );
 };
 

@@ -5,13 +5,17 @@ import TodoList from "./components/TodoList";
 function App() {
   const [value, setValue] = useState("");
   const [todos, setTodos] = useState([]);
-  const [state, setState] = useState({});
 
   function handleChangeInput(event) {
     setValue(event.target.value);
     console.log(value);
   }
-  function handleUpdate(id) {}
+  function handleUpdateTodo(id) {
+    const currentFind = todos.find((item) => item.id === id);
+    const currentFilter = todos.filter((item) => item.id !== id);
+    setValue(currentFind.title);
+    setTodos(currentFilter);
+  }
 
   function handleDaleteValue(id) {
     let del = todos.filter((e) => e.id !== id);
@@ -45,7 +49,7 @@ function App() {
       <TodoList
         todos={todos}
         handleDaleteValue={handleDaleteValue}
-        handleUpdate={handleUpdate}
+        handleUpdate={handleUpdateTodo}
       />
     </div>
   );
